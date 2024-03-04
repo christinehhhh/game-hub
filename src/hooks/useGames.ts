@@ -16,7 +16,7 @@ const useGames = (gameQuery: GameQuery) => {
     })
 
   return useInfiniteQuery<FetchResponse<Game>, Error>({
-    queryKey: ['posts', gameQuery],
+    queryKey: ['games', gameQuery],
     queryFn: fetchGames,
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined
