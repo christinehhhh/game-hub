@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+import ms from 'ms'
 import platforms from '../data/platforms'
 import platformService from '../services/platform-service'
 
@@ -8,7 +9,7 @@ const usePlatforms = () =>
   useQuery({
     queryKey: ['platforms'],
     queryFn: fetchPlatforms,
-    staleTime: 24 * 60 * 60 * 1000,
+    staleTime: ms('24h'),
     initialData: platforms,
   })
 

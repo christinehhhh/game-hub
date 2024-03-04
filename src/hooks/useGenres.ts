@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+import ms from 'ms'
 import genres from '../data/genres'
 import genreService from '../services/genre-service'
 
@@ -8,7 +9,7 @@ const useGenres = () =>
   useQuery({
     queryKey: ['genres'],
     queryFn: fetchGenres,
-    staleTime: 24 * 60 * 60 * 1000, //24h
+    staleTime: ms('24h'),
     initialData: genres,
   })
 
