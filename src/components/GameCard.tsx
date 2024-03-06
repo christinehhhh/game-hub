@@ -1,4 +1,5 @@
 import { Card, CardBody, HStack, Heading, Image } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 import { Game } from '../services/game-service'
 import getCroppedImageUrl from '../services/image-url'
 import CriticScore from './CriticScore'
@@ -11,7 +12,7 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card>
+    <Card >
       <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
         <HStack justify="space-between" marginBottom={3}>
@@ -21,7 +22,7 @@ const GameCard = ({ game }: Props) => {
           <CriticScore score={game.metacritic} />
         </HStack>
         <Heading fontSize="2xl">
-          {game.name}
+          <Link to={'/games/' + game.slug}>{game.name}</Link>
           <Emoji rating={game.rating_top} />
         </Heading>
       </CardBody>
