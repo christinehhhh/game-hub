@@ -1,5 +1,4 @@
-import ApiClient from './api-client'
-import { Platform } from './platform-service'
+import { Platform } from './Platform'
 
 export interface Game {
   id: number
@@ -11,5 +10,3 @@ export interface Game {
   metacritic: number
   rating_top: number
 }
-
-export default new ApiClient<Game>('/games')
