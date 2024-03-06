@@ -9,7 +9,7 @@ const apiClient = new ApiClient<Genre>('/genres')
 const useGenres = () => {
   const fetchGenres = () => apiClient.getAll()
 
-  useQuery({
+  return useQuery({
     queryKey: ['genres'],
     queryFn: fetchGenres,
     staleTime: ms('24h'),

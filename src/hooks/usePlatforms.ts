@@ -9,7 +9,7 @@ const apiClient = new ApiClient<Platform>('/platforms/lists/parents')
 const usePlatforms = () => {
   const fetchPlatforms = () => apiClient.getAll()
 
-  useQuery({
+  return useQuery({
     queryKey: ['platforms'],
     queryFn: fetchPlatforms,
     staleTime: ms('24h'),
